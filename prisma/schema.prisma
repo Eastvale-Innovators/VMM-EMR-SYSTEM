@@ -3,49 +3,78 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "postgresql" // or "mysql" or "sqlite", depending on your database
+  url      = env("DATABASE_URL") // This will read the database URL from your .env file
 }
 
 model Doctor {
   doctor_id String @id @default(uuid())
-  name String
-  Soap_Notes Soap_Note[]
+  name      String
+  SoapNotes Soap_Note[]
 }
 
 model Patient {
   patient_id String @id @default(uuid())
-  name String
-  dob DateTime?
-  Soap_Notes Soap_Note[]
+  name       String
+  dob        DateTime?
+  SoapNotes  Soap_Note[]
+}
+
+model Subjective {
+  subjective_id String @id @default(uuid())
+  chief_complaint String?
+  hpi String?
+  past_medical_history String?
+  surgical_history String?
+  family_history String?
+  social_history String?
+  allergies String?
+  medications String?
+  review_of_systems String?
+  soapNote Soap_Note? // Define the relationship here without fields/references
+}
+
+model Objective {
+  objective_id String @id @default(uuid())
+  height Float?
+  weight Float?
+  bmi Float?
+  blood_pressure String?
+  temperature Float?
+  pulse Int?
+  o2_oximeter Float?
+  physical_exam String?
+  test_results String?
+  soapNote Soap_Note? // Define the relationship here without fields/references
+}
+
+model Assessment {
+  assessment_id String @id @default(uuid())
+  assessment String?
+  soapNote Soap_Note? // Define the relationship here without fields/references
+}
+
+model Plan {
+  plan_id String @id @default(uuid())
+  plan String?
+  soapNote Soap_Note? // Define the relationship here without fields/references
 }
 
 model Soap_Note {
-  assignment_id String @id @default(uuid())
+  soap_note_id String @id @default(uuid())
+  date_of_visit DateTime
   doctor Doctor @relation(fields: [doctor_id], references: [doctor_id])
   doctor_id String
   patient Patient @relation(fields: [patient_id], references: [patient_id])
   patient_id String
-  date_of_visit DateTime
-  chief_complaint        String?
-  hpi                    String?
-  past_medical_history   String?
-  surgical_history       String?
-  family_history         String?
-  social_history         String?
-  allergies              String?
-  medications            String?
-  review_of_systems      String?
-  height                 Float?
-  weight                 Float?
-  bmi                    Float?
-  blood_pressure         String?
-  temperature            Float?
-  pulse                  Int?
-  o2_oximeter            Float?
-  physical_exam          String?
-  test_results           String?
-  assessment             String?
-  plan                   String?
-  follow_up              String?
+  subjective_id String @unique
+  objective_id String @unique
+  assessment_id String @unique
+  plan_id String @unique
+  follow_up String?
+
+  subjective Subjective @relation(fields: [subjective_id], references: [subjective_id])
+  objective Objective @relation(fields: [objective_id], references: [objective_id])
+  assessment Assessment @relation(fields: [assessment_id], references: [assessment_id])
+  plan Plan @relation(fields: [plan_id], references: [plan_id])
 }

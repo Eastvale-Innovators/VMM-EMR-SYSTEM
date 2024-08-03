@@ -63,3 +63,24 @@ main()
   .finally(async () => {
     await prisma.$disconnect();
   });
+
+// Example Prisma models
+type Patient = {
+  id: number;
+  name: string;
+  // ... other fields
+};
+
+// Wrapper function example
+async function createPatient(patientData: Omit<Patient, 'id'>) {
+  try {
+    const createdPatient = await prisma.patient.create({
+      data: patientData,
+    });
+    return createdPatient;
+  } catch (error) {
+    // Handle error
+    console.error('Error creating patient:', error);
+    throw error; // Or rethrow with custom error
+  }
+}

@@ -42,3 +42,10 @@ def submit():
 @app.post("/api/retrieve")
 def retrieve():
     pass
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+@app.route('/')
+def index():
+    return render_template('index.html')

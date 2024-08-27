@@ -20,7 +20,7 @@
                     "placeholder": "Detail the history of the current condition"
                 },
                 {
-                    "label": "Patient Histoy",
+                    "label": "Patient History",
                     "id": "patientHistory",
                     "type": "group",
                     "fields": [
@@ -60,13 +60,6 @@
                     "type": "text",
                     "inputType": "textarea",
                     "placeholder": "Detail the patient allergies"
-                },
-                {
-                    "label": "coming soon",
-                    "id": "todo",
-                    "type": "text",
-                    "inputType": "input",
-                    "placeholder": "todo field"
                 }
             ]
         },
@@ -76,27 +69,181 @@
             "type": "group",
             "fields": [
                 {
-                    "label": "test",
-                    "id": "test",
-                    "type": "text",
-                    "inputType": "textarea",
-                    "placeholder": "testing"
+                    "label": "Vital Signs",
+                    "id": "vitalSigns",
+                    "type": "group",
+                    "fields": [
+                        {
+                            "label": "Height",
+                            "id": "height",
+                            "type": "text",
+                            "inputType": "input",
+                            "placeholder": "Enter height"
+                        },
+                        {
+                            "label": "Weight",
+                            "id": "weight",
+                            "type": "text",
+                            "inputType": "input",
+                            "placeholder": "Enter weight"
+                        },
+                        {
+                            "label": "BMI",
+                            "id": "bmi",
+                            "type": "text",
+                            "inputType": "input",
+                            "placeholder": "Enter BMI"
+                        },
+                        {
+                            "label": "Blood Pressure",
+                            "id": "bloodPressure",
+                            "type": "text",
+                            "inputType": "input",
+                            "placeholder": "Enter blood pressure"
+                        },
+                        {
+                            "label": "Temperature",
+                            "id": "temperature",
+                            "type": "text",
+                            "inputType": "input",
+                            "placeholder": "Enter temperature"
+                        },
+                        {
+                            "label": "Pulse",
+                            "id": "pulse",
+                            "type": "text",
+                            "inputType": "input",
+                            "placeholder": "Enter pulse"
+                        },
+                        {
+                            "label": "O2 Oximeter",
+                            "id": "oxygen",
+                            "type": "text",
+                            "inputType": "input",
+                            "placeholder": "Enter oxygen saturation"
+                        }
+                    ]
                 },
                 {
-                    "label": "test",
-                    "id": "test",
-                    "type": "text",
-                    "inputType": "textarea",
-                    "placeholder": "testing"
-                },
-                {
-                    "label": "test",
-                    "id": "test",
-                    "type": "text",
-                    "inputType": "textarea",
-                    "placeholder": "testing"
+                    "label": "Physical Exam",
+                    "id": "physicalExam",
+                    "type": "group",
+                    "fields": [
+                        {
+                            "label": "Constitutional",
+                            "id": "constitutionalPhysical",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "placeholder": "Document constitutional physical findings"
+                        },
+                        {
+                            "label": "ENT",
+                            "id": "entPhysical",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "placeholder": "Document ENT physical findings"
+                        },
+                        {
+                            "label": "Respiratory",
+                            "id": "respiratoryPhysical",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "placeholder": "Document respiratory physical findings"
+                        },
+                        {
+                            "label": "Cardiovascular",
+                            "id": "cardiovascularPhysical",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "placeholder": "Document cardiovascular physical findings"
+                        },
+                        {
+                            "label": "Caloric",
+                            "id": "caloricPhysical",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "placeholder": "Document caloric physical findings"
+                        },
+                        {
+                            "label": "Skin",
+                            "id": "skinPhysical",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "placeholder": "Document skin physical findings"
+                        },
+                        {
+                            "label": "Extremities",
+                            "id": "extremitiesPhysical",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "placeholder": "Document extremities physical findings"
+                        },
+                        {
+                            "label": "Neurological",
+                            "id": "neurologicalPhysical",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "placeholder": "Document neurological physical findings"
+                        }
+                    ]
                 }
             ]
+        },
+        {
+            "label": "Test Results",
+            "id": "testResults",
+            "type": "text",
+            "inputType": "file",
+            "placeholder": "Upload test results"
+        },
+        {
+            "label": "Assessment",
+            "id": "assessment",
+            "type": "group",
+            "fields": [
+                {
+                    "label": "Assessment Notes",
+                    "id": "assessmentNotes",
+                    "type": "text",
+                    "inputType": "textarea",
+                    "placeholder": "Document the patient assessment in detail"
+                },
+                {
+                    "label": "Assessment File",
+                    "id": "assessmentFile",
+                    "type": "text",
+                    "inputType": "file",
+                    "placeholder": "Upload any relevant assessment files"
+                }
+            ]
+        },
+        {
+            "label": "Plan",
+            "id": "plan",
+            "type": "group",
+            "fields": [
+                {
+                    "label": "Plan Details",
+                    "id": "planDetails",
+                    "type": "text",
+                    "inputType": "textarea",
+                    "placeholder": "Document the treatment plan in detail"
+                },
+                {
+                    "label": "Plan File",
+                    "id": "planFile",
+                    "type": "text",
+                    "inputType": "file",
+                    "placeholder": "Upload any relevant plan files"
+                }
+            ]
+        },
+        {
+            "label": "Follow Up",
+            "id": "followUp",
+            "type": "text",
+            "inputType": "textarea",
+            "placeholder": "Document follow-up instructions"
         }
     ]
 }

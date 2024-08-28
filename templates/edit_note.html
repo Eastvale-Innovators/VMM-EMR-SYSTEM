@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit SOAP Note</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h3>Edit SOAP Note</h3>
+        <form id="edit-note-form" action="{{ url_for('edit_note', note_id=note[0]) }}" method="post" enctype="multipart/form-data">
+            <!-- Subjective Section -->
+            <div>
+                <h4>Subjective</h4>
+                <div class="form-group">
+                    <label for="chief_complaint">Chief Complaint:</label>
+                    <textarea id="chief_complaint" name="chief_complaint" class="form-control">{{ note[2] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="history_of_present_illness">History of Present Illness:</label>
+                    <textarea id="history_of_present_illness" name="history_of_present_illness" class="form-control">{{ note[3] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="past_medical_history">Past Medical History:</label>
+                    <textarea id="past_medical_history" name="past_medical_history" class="form-control">{{ note[4] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="surgical_history">Surgical History:</label>
+                    <textarea id="surgical_history" name="surgical_history" class="form-control">{{ note[5] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="family_medical_history">Family Medical History:</label>
+                    <textarea id="family_medical_history" name="family_medical_history" class="form-control">{{ note[6] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="social_history">Social History:</label>
+                    <textarea id="social_history" name="social_history" class="form-control">{{ note[7] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="allergies">Allergies:</label>
+                    <textarea id="allergies" name="allergies" class="form-control">{{ note[8] }}</textarea>
+                </div>
+            </div>
+            
+            <!-- Objective Section -->
+            <div>
+                <h4>Objective</h4>
+                <h5>Vital Signs</h5>
+                <div class="form-group">
+                    <label for="height">Height:</label>
+                    <input type="text" id="height" name="height" class="form-control" value="{{ note[9] }}">
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight:</label>
+                    <input type="text" id="weight" name="weight" class="form-control" value="{{ note[10] }}">
+                </div>
+                <div class="form-group">
+                    <label for="bmi">BMI:</label>
+                    <input type="text" id="bmi" name="bmi" class="form-control" value="{{ note[11] }}">
+                </div>
+                <div class="form-group">
+                    <label for="blood_pressure">Blood Pressure:</label>
+                    <input type="text" id="blood_pressure" name="blood_pressure" class="form-control" value="{{ note[12] }}">
+                </div>
+                <div class="form-group">
+                    <label for="temperature">Temperature:</label>
+                    <input type="text" id="temperature" name="temperature" class="form-control" value="{{ note[13] }}">
+                </div>
+                <div class="form-group">
+                    <label for="pulse">Pulse:</label>
+                    <input type="text" id="pulse" name="pulse" class="form-control" value="{{ note[14] }}">
+                </div>
+                <div class="form-group">
+                    <label for="o2_oximeter">O2 Oximeter:</label>
+                    <input type="text" id="o2_oximeter" name="o2_oximeter" class="form-control" value="{{ note[15] }}">
+                </div>
+                
+                <h5>Physical Exam</h5>
+                <div class="form-group">
+                    <label for="constitutional">Constitutional:</label>
+                    <textarea id="constitutional" name="constitutional" class="form-control">{{ note[16] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="ent">ENT:</label>
+                    <textarea id="ent" name="ent" class="form-control">{{ note[17] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="respiratory">Respiratory:</label>
+                    <textarea id="respiratory" name="respiratory" class="form-control">{{ note[18] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="cardiovascular">Cardiovascular:</label>
+                    <textarea id="cardiovascular" name="cardiovascular" class="form-control">{{ note[19] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="caloric">Caloric:</label>
+                    <textarea id="caloric" name="caloric" class="form-control">{{ note[20] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="skin">Skin:</label>
+                    <textarea id="skin" name="skin" class="form-control">{{ note[21] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="extremities">Extremities:</label>
+                    <textarea id="extremities" name="extremities" class="form-control">{{ note[22] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="neurological">Neurological:</label>
+                    <textarea id="neurological" name="neurological" class="form-control">{{ note[23] }}</textarea>
+                </div>
+            </div>
+            
+            <!-- Assessment Section -->
+            <div>
+                <h4>Assessment</h4>
+                <div class="form-group">
+                    <label for="assessment_notes">Assessment Notes:</label>
+                    <textarea id="assessment_notes" name="assessment_notes" class="form-control">{{ note[24] }}</textarea>
+                </div>
+            </div>
+            
+            <!-- Plan Section -->
+            <div>
+                <h4>Plan</h4>
+                <div class="form-group">
+                    <label for="plan_details">Plan Details:</label>
+                    <textarea id="plan_details" name="plan_details" class="form-control">{{ note[25] }}</textarea>
+                </div>
+                <div class="form-group">
+                    <label for="follow_up">Follow Up:</label>
+                    <textarea id="follow_up" name="follow_up" class="form-control">{{ note[26] }}</textarea>
+                </div>
+            </div>
+            
+            <!-- Test Results Section -->
+            <div>
+                <h4>Test Results</h4>
+                <div class="form-group">
+                    <label for="test_results">Upload Test Results:</label>
+                    <input type="file" id="test_results" name="test_results" class="form-control">
+                </div>
+            </div>
+            
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

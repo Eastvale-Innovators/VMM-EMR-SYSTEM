@@ -6,6 +6,9 @@
             "id": "patient_portal_group",
             "fields": [
                 {
+                    "type": "divider"
+                },
+                {
                     "type": "semititle",
                     "label": "Search for Patients",
                     "id": "searchTitle"
@@ -21,34 +24,28 @@
                     "type": "button",
                     "label": "Search",
                     "id": "searchButton",
-                    "actionname": "actiontest"
+                    "actionname": "searchPatient"
+                },
+                {
+                    "type": "divider"
                 },
                 {
                     "type": "semititle",
-                    "label": "Filter Patients",
-                    "id": "filterTitle"
+                    "label": "Patient List",
+                    "id": "patientList"
                 },
                 {
-                    "type": "select",
-                    "label": "Filter by:",
-                    "inputType": "radio",
-                    "id": "filterDropdown",
-                    "options": [
-                        {"label": "Date of Birth", "value": "dob"},
-                        {"label": "Sex", "value": "sex"},
-                        {"label": "Insurance", "value": "insurance"}
-                    ]
+                    "type": "caption",
+                    "label": "You must search for a patient to load!",
+                    "id": "caption1"
                 },
                 {
-                    "type": "button",
-                    "label": "Apply Filter",
-                    "id": "filterButton",
-                    "class": "btn btn-secondary",
-                    "actionname": "actiontest"
+                    "type": "caption",
+                    "label": "Press the column labels to sort by ascending or descending!",
+                    "id": "caprtion2"
                 },
                 {
                     "type": "table",
-                    "label": "Patient Table",
                     "id": "patientTable",
                     "columns": [
                         {"label": "Patient ID", "id": "patient_id"},

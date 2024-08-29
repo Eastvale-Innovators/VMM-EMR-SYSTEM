@@ -29,9 +29,15 @@ def parse_json_to_html(data, level=1):
                 html_parts.append(parse_json_to_html(field, level + 1)) #keep adding all its sub components
                 html_parts.append("</div>")
                 html_parts.append("<hr>")
+            elif field_type == "divider":
+                html_parts.append('<hr>')
             elif field_type == "semititle":
-                html_parts.append(f'<div id="{field_id}" class="p-4">')
+                html_parts.append(f'<div id="{field_id}" class="p-1">')
                 html_parts.append(f"<h3>{label}</h4>")
+                html_parts.append("</div>")
+            elif field_type == "caption":
+                html_parts.append(f'<div id="{field_id}" class="p-1">')
+                html_parts.append(f"<p>{label}</p>")
                 html_parts.append("</div>")
             elif input_type == "textarea":
                 html_parts.append('<div class="input-group mb-3">')
@@ -107,7 +113,7 @@ def parse_json_to_html(data, level=1):
                 html_parts.append("<br>")
 
             elif field_type == "table":
-                html_parts.append('<table class="table table-striped table-hover">')
+                html_parts.append(f'<table class="table table-striped table-hover sortable" id = "{field_id}">')
                 # Table headers
                 html_parts.append("<thead><tr>")
                 for column in table_columns:

@@ -16,10 +16,10 @@ def index():
     template = parse_template.load_json("patient_portal.json")
     form_html = parse_template.parse_json_to_html(template)
     
+
     #form_html = (
     #    '<form action="/api/submit" method="post">'
     #    + form_html
-    #    + '<button type="submit" class="btn btn-primary">Submit</button>'
     #    + "</form>"
     #)
 
@@ -46,11 +46,7 @@ def perform_action():
     data = request.get_json()
     action = data.get('action')
 
-    if action == 'searchPatient':
-        result = {'status': 'success', 'message': 'Action performed successfully'}
-    elif action == 'filterPatient':
-        result = {'status': 'success', 'message': 'Action performed successfully'}
-    else:
+    if action == 'ss':
         result = {'status': 'error', 'message': 'Unknown action'}
 
     return jsonify(result)

@@ -1,0 +1,83 @@
+{
+    "fields": [
+        {
+            "type": "group",
+            "label": "Patient Portal",
+            "id": "patient_portal_group",
+            "fields": [
+                {
+                    "type": "semititle",
+                    "label": "Search for Patients",
+                    "id": "searchTitle"
+                },
+                {
+                    "type": "input",
+                    "inputType": "textarea",
+                    "label": "Search for patients by name",
+                    "id": "searchInput",
+                    "placeholder": "Search for patients by name..."
+                },
+                {
+                    "type": "button",
+                    "label": "Search",
+                    "id": "searchButton",
+                    "actionname": "actiontest"
+                },
+                {
+                    "type": "semititle",
+                    "label": "Filter Patients",
+                    "id": "filterTitle"
+                },
+                {
+                    "type": "select",
+                    "label": "Filter by:",
+                    "inputType": "radio",
+                    "id": "filterDropdown",
+                    "options": [
+                        {"label": "Date of Birth", "value": "dob"},
+                        {"label": "Sex", "value": "sex"},
+                        {"label": "Insurance", "value": "insurance"}
+                    ]
+                },
+                {
+                    "type": "button",
+                    "label": "Apply Filter",
+                    "id": "filterButton",
+                    "class": "btn btn-secondary",
+                    "actionname": "actiontest"
+                },
+                {
+                    "type": "table",
+                    "label": "Patient Table",
+                    "id": "patientTable",
+                    "columns": [
+                        {"label": "Patient ID", "id": "patient_id"},
+                        {"label": "Last Name", "id": "last_name"},
+                        {"label": "First Name", "id": "first_name"},
+                        {"label": "DOB", "id": "dob"},
+                        {"label": "Sex", "id": "sex"},
+                        {"label": "Action", "id": "action"}
+                    ],
+                    "rows": [
+                        {
+                            "patient_id": "38096480",
+                            "last_name": "Patient",
+                            "first_name": "Fake",
+                            "dob": "07/01/2013",
+                            "sex": "F",
+                            "action": "<a href='#' onclick='openFile(38096480)'><img src='file_icon.png' alt='Open File' style='width:24px;'></a>"
+                        },
+                        {
+                            "patient_id": "12345678",
+                            "last_name": "Doe",
+                            "first_name": "John",
+                            "dob": "01/15/1980",
+                            "sex": "M",
+                            "action": "<a href='#' onclick='openFile(12345678)'><img src='file_icon.png' alt='Open File' style='width:24px;'></a>"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,102 @@
+{
+    "fields": [
+        {
+            "label": "Subjective",
+            "id": "subjective",
+            "type": "group",
+            "fields": [
+                {
+                    "label": "Chief Complaint",
+                    "id": "chiefComplaint",
+                    "type": "text",
+                    "inputType": "textarea",
+                    "placeholder": "Describe the main issue"
+                },
+                {
+                    "label": "History of Present Illness",
+                    "id": "HPI",
+                    "type": "text",
+                    "inputType": "textarea",
+                    "placeholder": "Detail the history of the current condition"
+                },
+                {
+                    "label": "Patient Histoy",
+                    "id": "patientHistory",
+                    "type": "group",
+                    "fields": [
+                        {
+                            "label": "Past Medical History",
+                            "id": "pastMedicalHistory",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "placeholder": "Include any relevant past medical history"
+                        },
+                        {
+                            "label": "Surgical History",
+                            "id": "surgicalHistory",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "placeholder": "Include any relevant past surgical history"
+                        },
+                        {
+                            "label": "Family Medical History",
+                            "id": "familyHistory",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "placeholder": "Include any relevant past family medical history"
+                        },
+                        {
+                            "label": "Social History",
+                            "id": "socialHistory",
+                            "type": "text",
+                            "inputType": "textarea",
+                            "placeholder": "Include any relevant past patient social history"
+                        }
+                    ]
+                },
+                {
+                    "label": "Allergies",
+                    "id": "allergies",
+                    "type": "text",
+                    "inputType": "textarea",
+                    "placeholder": "Detail the patient allergies"
+                },
+                {
+                    "label": "coming soon",
+                    "id": "todo",
+                    "type": "text",
+                    "inputType": "input",
+                    "placeholder": "todo field"
+                }
+            ]
+        },
+        {
+            "label": "Objective",
+            "id": "objective",
+            "type": "group",
+            "fields": [
+                {
+                    "label": "test",
+                    "id": "test",
+                    "type": "text",
+                    "inputType": "textarea",
+                    "placeholder": "testing"
+                },
+                {
+                    "label": "test",
+                    "id": "test",
+                    "type": "text",
+                    "inputType": "textarea",
+                    "placeholder": "testing"
+                },
+                {
+                    "label": "test",
+                    "id": "test",
+                    "type": "text",
+                    "inputType": "textarea",
+                    "placeholder": "testing"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>SoapNotes</title>
+</head>
+
+<body>
+    <div class="mx-2">
+        {{ form_content }}
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelectorAll('button[data-action]').forEach(button => {
+                button.addEventListener('click', function () {
+                    const action = button.getAttribute('data-action');
+                    const dataToSend = {action: action};
+        
+                    fetch('/perform_action', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(dataToSend)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+                    .catch(error => console.error('Error:', error));
+                });
+            });
+        });
+    </script>        
+</body>
+
+</html>

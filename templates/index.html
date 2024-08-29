@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+
+    <script src="{{url_for('static', filename='soapnote-scripts/fill-in-buttons.js')}}" defer></script>
+    <script src="{{url_for('static', filename='soapnote-scripts/submit-data.js')}}" defer></script>
+
+    <!-- <script src="soapnote-scripts/fill-in-buttons.js" defer></script> -->
+    <!-- <script src="soapnote-scripts/submit-data.js" defer></script> -->
+</head>
+
+<body style="background-color: seashell;">
+<div>
+    <h3>
+        Date of clinic visit:
+        <br><br>
+        Patient name:
+        <br><br>
+        Date of birth:
+    </h3>
+</div>
+
+<form id="erm-form" class="alignment" action="/api/submit">
+    <hr>
+
+    <div>
+        <h1 class="title">Subjective</h1>
+
+        <h2 class="pt-4"><label for="chief-complaint">Chief Complaint</label></h2>
+        <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black;" rows="5"
+                  cols="60" id="chief-complaint" name="chief-complaint"></textarea>
+
+        <h2 class="pt-4"><label for="hpi">HPI</label></h2>
+        <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black" rows="5"
+                  cols="60" id="hpi" name="hpi"></textarea>
+
+
+        <h2 class="pt-8">History:</h2>
+
+        <h4 class="pt-2"><label for="medical-history">Past Medical History</label></h4>
+        <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black" rows="5"
+                  cols="60" id="medical-history" name="medical-history"></textarea>
+
+        <h4 class="pt-2"><label for="surgical-history">Surgical History</label></h4>
+        <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black" rows="5"
+                  cols="60" id="surgical-history" name="surgical-history"></textarea>
+
+        <h4 class="pt-2"><label for="family-history">Family History</label></h4>
+        <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black" rows="5"
+                  cols="60" id="family-history" name="family-history"></textarea>
+
+        <h4 class="pt-2"><label for="social-history">Social History</label></h4>
+        <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black" rows="5"
+                  cols="60" id="social-history" name="social-history"></textarea>
+
+        <h2 class="pt-8"><label for="allergies">Allergies</label></h2>
+        <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black" rows="5"
+                  cols="60" id="allergies" name="allergies"></textarea>
+
+        <h2 class="pt-4"><label for="medications">Medications</label></h2>
+        <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black" rows="5"
+                  cols="60" id="medications" name="medications"></textarea>
+
+        <section>
+            <h2 class="pt-4 pb-2">Review of Systems</h2>
+
+            <h3><label for="constitutional-ros" class="mt-20">Constitutional:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Fever', 'constitutional-ros')"
+                      class="cursor-pointer">Fever</span> |
+                <span onclick="addFillInText('Chills', 'constitutional-ros')"
+                      class="cursor-pointer">Chills</span> |
+                <span onclick="addFillInText('Weight gain', 'constitutional-ros')"
+                      class="cursor-pointer">Weight gain</span> |
+                <span onclick="addFillInText('Weight loss', 'constitutional-ros')"
+                      class="cursor-pointer">Weight loss</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="constitutional-ros" name="constitutional-ros"></textarea>
+
+            <h3><label for="heent-ros" class="mt-20">HEENT:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Headache', 'heent-ros')"
+                      class="cursor-pointer">Headache</span> |
+                <span onclick="addFillInText('Hearing loss', 'heent-ros')"
+                      class="cursor-pointer">Hearing loss</span> |
+                <span onclick="addFillInText('Sinus pressure', 'heent-ros')"
+                      class="cursor-pointer">Sinus pressure</span> |
+                <span onclick="addFillInText('Visual changes', 'heent-ros')"
+                      class="cursor-pointer">Visual changes</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="heent-ros" name="heent-ros"></textarea>
+
+            <h3><label for="respiratory-ros" class="mt-20">Respiratory:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Cough', 'respiratory-ros')"
+                      class="cursor-pointer">Cough</span> |
+                <span onclick="addFillInText('Shortness of breath', 'respiratory-ros')"
+                      class="cursor-pointer">Shortness of breath</span> |
+                <span onclick="addFillInText('Wheezing', 'respiratory-ros')"
+                      class="cursor-pointer">Wheezing</span> |
+                <span onclick="addFillInText('Phlegm/Mucus', 'respiratory-ros')"
+                      class="cursor-pointer">Phlegm/Mucus</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="respiratory-ros" name="respiratory-ros"></textarea>
+
+            <h3><label for="cardiovascular-ros" class="mt-20">Cardiovascular:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Chest pain', 'cardiovascular-ros')"
+                      class="cursor-pointer">Chest pain</span> |
+                <span onclick="addFillInText('Pain while walking', 'cardiovascular-ros')"
+                      class="cursor-pointer">Pain while walking</span> |
+                <span onclick="addFillInText('Edema', 'cardiovascular-ros')"
+                      class="cursor-pointer">Edema</span> |
+                <span onclick="addFillInText('Palpitations', 'cardiovascular-ros')"
+                      class="cursor-pointer">Palpitations</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="cardiovascular-ros" name="cardiovascular-ros"></textarea>
+
+            <h3><label for="gastrointestinal-ros" class="mt-20">Gastrointestinal:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Abdominal pain', 'gastrointestinal-ros')"
+                      class="cursor-pointer">Abdominal pain</span> |
+                <span onclick="addFillInText('Blood in stool', 'gastrointestinal-ros')"
+                      class="cursor-pointer">Blood in stool</span> |
+                <span onclick="addFillInText('Constipation', 'gastrointestinal-ros')"
+                      class="cursor-pointer">Constipation</span> |
+                <span onclick="addFillInText('Diarrhea', 'gastrointestinal-ros')"
+                      class="cursor-pointer">Diarrhea</span> |
+                <span onclick="addFillInText('Heartburn', 'gastrointestinal-ros')"
+                      class="cursor-pointer">Heartburn</span> |
+                <span onclick="addFillInText('Loss of appetite', 'gastrointestinal-ros')"
+                      class="cursor-pointer">Loss of appetite</span> |
+                <span onclick="addFillInText('Nausea', 'gastrointestinal-ros')"
+                      class="cursor-pointer">Nausea</span> |
+                <span onclick="addFillInText('Vomiting blood', 'gastrointestinal-ros')"
+                      class="cursor-pointer">Vomiting blood</span> |
+                <span onclick="addFillInText('Vomiting bile', 'gastrointestinal-ros')"
+                      class="cursor-pointer">Vomiting bile</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="gastrointestinal-ros" name="gastrointestinal-ros"></textarea>
+
+            <h3><label for="genitourinary-ros" class="mt-20">Respiratory:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Painful urination', 'genitourinary-ros')"
+                      class="cursor-pointer">Painful urination</span> |
+                <span onclick="addFillInText('Excessive urination', 'genitourinary-ros')"
+                      class="cursor-pointer">Excessive urination</span> |
+                <span onclick="addFillInText('Urinary frequency', 'genitourinary-ros')"
+                      class="cursor-pointer">Urinary frequency</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="genitourinary-ros" name="genitourinary-ros"></textarea>
+
+            <h3><label for="metabolic-ros" class="mt-20">Metabolic/Endocrine:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Heat intolerance', 'metabolic-ros')"
+                      class="cursor-pointer">Heat intolerance</span> |
+                <span onclick="addFillInText('Cold intolerance', 'metabolic-ros')"
+                      class="cursor-pointer">Cold intolerance</span> |
+                <span onclick="addFillInText('Excessive thirst', 'metabolic-ros')"
+                      class="cursor-pointer">Excessive thirst</span> |
+                <span onclick="addFillInText('Excessive hunger', 'metabolic-ros')"
+                      class="cursor-pointer">Excessive hunger</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="metabolic-ros" name="metabolic-ros"></textarea>
+
+            <h3><label for="neurological-ros" class="mt-20">Neurological:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Dizziness', 'neurological-ros')"
+                      class="cursor-pointer">Dizziness</span> |
+                <span onclick="addFillInText('Extremity numbness', 'neurological-ros')"
+                      class="cursor-pointer">Extremity numbness</span> |
+                <span onclick="addFillInText('Extremity weakness', 'neurological-ros')"
+                      class="cursor-pointer">Extremity weakness</span> |
+                <span onclick="addFillInText('Headaches', 'neurological-ros')"
+                      class="cursor-pointer">Headaches</span> |
+                <span onclick="addFillInText('Seizures', 'neurological-ros')"
+                      class="cursor-pointer">Seizures</span> |
+                <span onclick="addFillInText('Tremors', 'neurological-ros')"
+                      class="cursor-pointer">Tremors</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="neurological-ros" name="neurological-ros"></textarea>
+
+            <h3><label for="psychiatric-ros" class="mt-20">Psychiatric:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Anxiety', 'psychiatric-ros')"
+                      class="cursor-pointer">Anxiety</span> |
+                <span onclick="addFillInText('Depression', 'psychiatric-ros')"
+                      class="cursor-pointer">Depression</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="psychiatric-ros" name="psychiatric-ros"></textarea>
+
+            <h3><label for="integumentary-ros" class="mt-20">Integumentary:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Breast discharge', 'integumentary-ros')"
+                      class="cursor-pointer">Breast discharge</span> |
+                <span onclick="addFillInText('Breast lump', 'integumentary-ros')"
+                      class="cursor-pointer">Breast lump</span> |
+                <span onclick="addFillInText('Hives', 'integumentary-ros')"
+                      class="cursor-pointer">Hives</span> |
+                <span onclick="addFillInText('Rash', 'integumentary-ros')"
+                      class="cursor-pointer">Rash</span> |
+                <span onclick="addFillInText('Mole changes', 'integumentary-ros')"
+                      class="cursor-pointer">Mole changes</span> |
+                <span onclick="addFillInText('Skin lesion', 'integumentary-ros')"
+                      class="cursor-pointer">Skin lesion</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="integumentary-ros" name="integumentary-ros"></textarea>
+
+            <h3><label for="musculoskeletal-ros" class="mt-20">Musculoskeletal:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Back pain', 'musculoskeletal-ros')"
+                      class="cursor-pointer">Back pain</span> |
+                <span onclick="addFillInText('Joint pain', 'musculoskeletal-ros')"
+                      class="cursor-pointer">Joint pain</span> |
+                <span onclick="addFillInText('Joint swelling', 'musculoskeletal-ros')"
+                      class="cursor-pointer">Joint swelling</span> |
+                <span onclick="addFillInText('Neck pain', 'musculoskeletal-ros')"
+                      class="cursor-pointer">Neck pain</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="musculoskeletal-ros" name="musculoskeletal-ros"></textarea>
+
+            <h3><label for="hematologic-ros" class="mt-20">Hematologic:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Easily bleeds', 'hematologic-ros')"
+                      class="cursor-pointer">Easily bleeds</span> |
+                <span onclick="addFillInText('Easily bruises', 'hematologic-ros')"
+                      class="cursor-pointer">Easily bruises</span> |
+                <span onclick="addFillInText('Lymphedema', 'hematologic-ros')"
+                      class="cursor-pointer">Lymphedema</span> |
+                <span onclick="addFillInText('Issues with blood clots', 'hematologic-ros')"
+                      class="cursor-pointer">Issues with blood clots</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="hematologic-ros" name="hematologic-ros"></textarea>
+
+            <h3><label for="immunologic-ros" class="mt-20">Immunologic:</label></h3>
+            <p class="text-blue-500">
+                <span onclick="addFillInText('Food allergies', 'immunologic-ros')"
+                      class="cursor-pointer">Food allergies</span> |
+                <span onclick="addFillInText('Seasonal allergies', 'immunologic-ros')"
+                      class="cursor-pointer">Seasonal allergies</span>
+            </p>
+            <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                      rows="5" cols="60" id="immunologic-ros" name="immunologic-ros"></textarea>
+
+
+        </section>
+
+    </div>
+
+    <hr>
+
+    <div>
+        <h1 class="title pt-12">Objective</h1>
+
+        <h2 class="pt-4">Vital Signs:</h2>
+        <div>
+            <div class="pt-2">
+                <label for="height" class="label">Height:</label>
+                <input class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                       type="text" id="height" name="height">
+            </div>
+            <br/>
+            <div>
+                <label for="weight" class="label">Weight:</label>
+                <input class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                       type="text" id="weight" name="weight">
+            </div>
+            <br/>
+            <div>
+                <label for="bmi" class="label">BMI:</label>
+                <input class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                       type="text" id="bmi" name="bmi">
+            </div>
+            <br/>
+            <div>
+                <label for="blood-pressure" class="label">Blood Pressure:</label>
+                <input class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                       type="text" id="blood-pressure" name="blood-pressure">
+            </div>
+            <br/>
+            <div>
+                <label for="temp" class="label">Temperature:</label>
+                <input class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                       type="text" id="temp" name="temp">
+            </div>
+            <br/>
+            <div>
+                <label for="pulse" class="label">Pulse:</label>
+                <input class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                       type="text" id="pulse" name="pulse">
+            </div>
+            <br/>
+            <div>
+                <label for="oxygen" class="label">O2 Oximeter:</label>
+                <input class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                       type="text" id="oxygen" name="oxygen">
+            </div>
+        </div>
+
+        <br/>
+
+        <div>
+            <h2 class="pt-4">Physical Exam:</h2>
+            <div class="pt-2">
+                <h4><label for="constitutional-physical">Constitutional</label></h4>
+                <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                          rows="3" cols="60" id="constitutional-physical" name="constitutional-physical"></textarea>
+            </div>
+            <div class="pt-2">
+                <h4><label for="ent">ENT</label></h4>
+                <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                          rows="3" cols="60" id="ent" name="ent"></textarea>
+            </div>
+            <div class="pt-2">
+                <h4><label for="respiratory">Respiratory</label></h4>
+                <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                          rows="3" cols="60" id="respiratory" name="respiratory"></textarea>
+            </div>
+            <div class="pt-2">
+                <h4><label for="cardio">Cardio</label></h4>
+                <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                          rows="3" cols="60" id="cardio" name="cardio"></textarea>
+            </div>
+            <div class="pt-2">
+                <h4><label for="cal">Cal</label></h4>
+                <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                          rows="3" cols="60" id="cal" name="cal"></textarea>
+            </div>
+            <div class="pt-2">
+                <h4><label for="skin">Skin</label></h4>
+                <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                          rows="3" cols="60" id="skin" name="skin"></textarea>
+            </div>
+            <div class="pt-2">
+                <h4><label for="extremities">Extremities</label></h4>
+                <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                          rows="3" cols="60" id="extremities" name="extremities"></textarea>
+            </div>
+            <div class="pt-2">
+                <h4><label for="neuro">Neuro</label></h4>
+                <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                          rows="3" cols="60" id="neuro" name="neuro"></textarea>
+            </div>
+            <div class="pt-4">
+                <h2><label for="test-results">Test Results</label></h2>
+                <input class="pl-20" type="file" id="test-results" name="test-results">
+            </div>
+        </div>
+        <br>
+
+        <div class="pt-4 pb-40">
+            <div>
+                <h1 class="title"><label for="assessment">Assessment</label></h1>
+                <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                          rows="20" cols="110" id="assessment" name="assessment"></textarea>
+            </div>
+            <br>
+            <div>
+                <h1 class="title"><label for="plan">Plan</label></h1>
+                <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                          rows="20" cols="110" id="plan" name="plan"></textarea>
+            </div>
+            <br>
+            <div>
+                <h1 class="title"><label for="follow-up">Follow Up</label></h1>
+                <textarea class="transition-all duration-500 rounded-md border-2 border-gray-300 hover:border-black"
+                          rows="20" cols="110" id="follow-up" name="follow-up"></textarea>
+            </div>
+            <input class=" my-12 border-solid border-2 border-black px-2 py-1 text-4xl rounded-md cursor-pointer
+                               hover:bg-white" type="submit" id="submit-button"/>
+        </div>
+    </div>
+</form>
+
+</body>
+
+</html>

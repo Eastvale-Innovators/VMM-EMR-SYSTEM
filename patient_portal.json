@@ -40,11 +40,6 @@
                     "id": "caption1"
                 },
                 {
-                    "type": "caption",
-                    "label": "Press the column labels to sort by ascending or descending!",
-                    "id": "caprtion2"
-                },
-                {
                     "type": "table",
                     "id": "patientTable",
                     "columns": [
